@@ -57,7 +57,7 @@ class GmapsController < ApplicationController
    def destroy_images
      @gmap = Gmap.find_by(params[:marker])
      @gmap.destroy if (@gmap.user == current_user)
-     render json: success
+     render json: success if (@gmap.user == current_user)
    end
   # PATCH/PUT /gmaps/1
   # PATCH/PUT /gmaps/1.json
