@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @gmap.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @gmap.longitude %>
+</p>
+
+<p>
+  <strong>Coment:</strong>
+  <%= @gmap.coment %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gmap.title %>
+</p>
+
+<%= link_to 'Edit', edit_gmap_path(@gmap) %> |
+<%= link_to 'Back', gmaps_path %>

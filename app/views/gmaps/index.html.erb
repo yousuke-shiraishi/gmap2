@@ -1,0 +1,7 @@
+<h1>Gmaps</h1>
+<div id="gmaps"></div>
+<br>
+<%= javascript_tag do %>
+  var addresses = <%= raw @gmaps.to_json %>;
+<% end %>
+  <%= link_to 'マーカー情報を登録する',users_touroku_path %>

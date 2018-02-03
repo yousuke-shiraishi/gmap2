@@ -1,0 +1,74 @@
+<aside>
+  <article class="">
+    <% if logged_in? %>
+    <h1>あなたの画像</h1>
+    <br>
+    <%= image_tag current_user.image ,class: :"img-rounded" %>
+    <br>
+
+    <%= current_user.name %>
+
+    <br>
+    <%= form_with(model: current_user, local: true) do |form| %>
+
+    <% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(current_user.errors.count, "個エラーがあります,") %>保存されていません。</h2>
+
+      <ul>
+        <% current_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <% end %>
+    <br>
+    <div class="field">
+      <%= form.label :"画像" %>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :id %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit '保存する' %>
+    </div>
+    <% end %>
+
+    <h1>絞り込み検索</h1>
+    <!--  検索拡張機能  -->
+
+    <%= form_tag({controller: "users", action: "search",remote:true} ,{method: "get",id:"form1"}) do %>
+    <p>
+      <label>名前</label>
+    </p>
+    <p><%= text_field_tag :name %></p>
+    <p>
+      <label>生年月日</label>
+    </p>
+    <p><%= text_field_tag :birth %></p>
+    <p><%= submit_tag '検索する', :name => 'public' %></p>
+    <% end %>
+
+    <%= form_tag({controller: "users", action: "search",remote:true} ,{method: "get",id:"form2"}) do %>
+    <p>
+      <label>メールアドレス</label>
+    </p>
+    <p><%= email_field_tag :email %></p>
+    <p>
+      <label>合言葉</label>
+    </p>
+    <p><%= text_field_tag :magic_word %></p>
+    <p><%= submit_tag '検索する', :name => 'private' %></p>
+    <% end %>
+    <div class="form-group">
+    <div class="radio">
+      <input type="radio" id="radio1" name="radio_serach" value="public" checked >全体に公開されているものを検索
+    </div>
+    <div class="radio">
+      <input type="radio" id="radio2"name="radio_serach" value="private">プライベートのものを検索
+    </div>
+    </div>
+  <% end %>
+  </article>
+</aside>
