@@ -15,6 +15,13 @@
  *= require_tree .
  *= require_self
  */
+
+.text-center{
+  text-align: center;
+}
+
+
+
  #ｇmaps img {
    max-width: none;
    /* ... */
@@ -27,27 +34,27 @@
    text-align: center;
  }
  #form1{
-  /*display: none;*/
+
  }
  #form2{
   display: none;
  }
 
-.wrapper {
-  position: relative;
-  padding-top: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-bottom: 20px;
-  display: block;
-  min-width: 320px;
-  width: 30%;
-  min-height: 250px;
-  margin: 25px 1.5%;
-  border:5px solid #5abbe4;
-  //background: linear-gradient(180deg, rgba(49, 164, 203, 1), rgba(49, 164, 203, 0.3));
-  overflow: hidden;
-}
+// .wrapper {
+//   position: relative;
+//   padding-top: 0px;
+//   padding-left: 0px;
+//   padding-right: 0px;
+//   padding-bottom: 20px;
+//   display: block;
+//   min-width: 320px;
+//   width: 30%;
+//   min-height: 250px;
+//   margin: 25px 1.5%;
+//   border:5px solid #5abbe4;
+//   //background: linear-gradient(180deg, rgba(49, 164, 203, 1), rgba(49, 164, 203, 0.3));
+//   overflow: hidden;
+// }
 
 
 #blogpr {
@@ -61,10 +68,10 @@
   vertical-align: middle;
   font-size: 17px;
 }
-
-.container-fluid {
-  height: 100%;
-}
+//
+// .container-fluid {
+//   height: 100%;
+// }
 
 .navbar.navbar-default {
   background-color: #0f0f0f;
@@ -99,7 +106,21 @@ html {
 
 body {
   position: relative;
-  width: auto;
+  width: 100%;// .wrapper {
+//   position: relative;
+//   padding-top: 0px;
+//   padding-left: 0px;
+//   padding-right: 0px;
+//   padding-bottom: 20px;
+//   display: block;
+//   min-width: 320px;
+//   width: 30%;
+//   min-height: 250px;
+//   margin: 25px 1.5%;
+//   border:5px solid #5abbe4;
+//   //background: linear-gradient(180deg, rgba(49, 164, 203, 1), rgba(49, 164, 203, 0.3));
+//   overflow: hidden;
+// }
   height: auto;
   /*color: #333;*/
   background-color: #F8F8F8;
@@ -112,7 +133,7 @@ table {
 .footer {
   position: fixed;
   bottom: 0;
-
+height:100%;
   height: 60px;
   background-color: black;
   /*margin-top: 100px;*/

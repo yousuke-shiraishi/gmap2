@@ -1,17 +1,19 @@
-<h1>ログイン</h1>
+<h1 class="text-center">ログイン</h1>
 <%= form_with(scope: :session, url: sessions_path) do |f| %>
 <div class="row">
 <div class="form-group">
-    <%= f.label :"メールアドレス" ,class:"col-xs-4 col-md-4 col-lg-4"%>
+    <%= f.label :"メールアドレス" ,class:"col-xs-4 col-md-4 col-lg-4 text-center"%>
     <%= f.email_field :email ,class:"col-xs-4 col-md-4 col-lg-4" %>
   </div>
   <br><br>
   <div class="form-group">
-    <%= f.label :password ,class:"col-xs-4 col-md-4 col-lg-4"%>
+    <%= f.label :password ,class:"col-xs-4 col-md-4 col-lg-4 text-center"%>
     <%= f.password_field :password, class:"col-xs-4 col-md-4 col-lg-4" %>
   </div>
   <br>
-  <%= f.submit "ログイン" %>
+  <div class="text-center">
+  <%= f.submit "ログイン"%>
+  </div>
 </div>
 
 <% end %>

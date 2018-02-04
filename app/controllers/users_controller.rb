@@ -4,9 +4,9 @@ require 'date'
 
   def search
     if params[:public]
-      @user=User.where('name = ? AND birth = ?',params[:name],params[:birth]) if date_valid?(params[:birth])
+      @user=User.where('name = ? AND birth = ?',params[:name],params[:birth])
       @gmaps = @user.joins(:gmaps).where('magic_word = ?',"").map {|user| user.gmaps}.flatten.uniq.reject{|item| item.magic_word != ""}
-     render template: 'gmaps/index'
+      render template: 'gmaps/index'
     else
       @user=User.where('email = ?',params[:email])
       @gmaps=@user.joins(:gmaps).where('magic_word = ?',params[:magic_word]).map {|user| user.gmaps}.flatten.uniq.reject{|item| item.magic_word == ""}
@@ -51,7 +51,7 @@ end
 
     if logged_in? then
       redirect_to new_gmap_path
-    else
+    elseUsersController
       redirect_to new_user_path
     end
   end
@@ -69,17 +69,4 @@ end
     end
   end
 
-  def date_valid?(str)
-     str.tr!("０-９","0-9")
-
-if str.include?("年") and str.include?("月") and str.include?("日")
-/(\d{4})年(\d{1,2})月(\d{1,2})日/ =~ str
-
-str =[$1,$2,$3]
-
-
-str=str.join("/")
-end
-    !! Date.parse(str) rescue false
-  end
 end
