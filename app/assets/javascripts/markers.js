@@ -22,7 +22,7 @@ function initMap() {
       title: addresses[i].title,
       id: addresses[i].id
     });
-    marker.image = addresses[i].image;
+//    marker.image = addresses[i].image;
     largeInfowindow[i] = new google.maps.InfoWindow({
       content: addresses[i].coment
     });

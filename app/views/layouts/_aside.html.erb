@@ -1,12 +1,12 @@
 <aside>
   <article class="">
     <% if logged_in? %>
-    <h1>あなたの画像</h1>
+    <h1 class="text-center">あなたの画像</h1>
     <br>
-    <%= image_tag current_user.image ,class: :"img-rounded" %>
+    <div class="text-center" ><%= image_tag current_user.image ,class: :"img-rounded" %></div>
     <br>
 
-    <%= current_user.name %>
+<div class="text-center"><%= current_user.name %></div>
 
     <br>
     <%= form_with(model: current_user, local: true) do |form| %>
@@ -24,51 +24,52 @@
 
     <% end %>
     <br>
-    <div class="field">
+    <div class="text-center">
       <%= form.label :"画像" %>
-      <%= form.file_field :image %>
-      <%= form.hidden_field :id %>
     </div>
+      <div class="text-center"><%= form.file_field :image %></div>
+      <%= form.hidden_field :id %>
 
-    <div class="actions">
+
+    <div class="actions text-center">
       <%= form.submit '保存する' %>
     </div>
     <% end %>
 
-    <h1>絞り込み検索</h1>
+    <h1 class="text-center">絞り込み検索</h1>
     <!--  検索拡張機能  -->
 
     <%= form_tag({controller: "users", action: "search",remote:true} ,{method: "get",id:"form1"}) do %>
-    <p>
+<div class="text-center"><p>
       <label>名前</label>
-    </p>
-    <p><%= text_field_tag :name %></p>
-    <p>
+    </p></div>
+    <p class="text-center" ><input type="text" name="name" required><br></p>
+    <div class="text-center"><p>
       <label>生年月日</label>
-    </p>
-    <p><%= text_field_tag :birth %></p>
-    <p><%= submit_tag '検索する', :name => 'public' %></p>
+    </p></div>
+    <div class="text-center"><p><input  class="text-center"type="date" name="birth" required><br></p></div>
+    <div class="text-center"><p class="text-center"><%= submit_tag '検索する', :name => 'public' %></p></div>
     <% end %>
 
     <%= form_tag({controller: "users", action: "search",remote:true} ,{method: "get",id:"form2"}) do %>
-    <p>
+    <div class="text-center"><p>
       <label>メールアドレス</label>
-    </p>
-    <p><%= email_field_tag :email %></p>
-    <p>
+    </p></div>
+    <div class="text-center"><p><input type="email" name="email" required><br></p></div>
+    <div class="text-center"><p>
       <label>合言葉</label>
-    </p>
-    <p><%= text_field_tag :magic_word %></p>
-    <p><%= submit_tag '検索する', :name => 'private' %></p>
+    </p></div>
+  <div class="text-center"><p><input type="text" name="magic_word" required></p></div>
+    <div class="text-center"><p><%= submit_tag '検索する', :name => 'private' %></p></div>
     <% end %>
-    <div class="form-group">
+    <div class="form-group text-center">
     <div class="radio">
       <input type="radio" id="radio1" name="radio_serach" value="public" checked >全体に公開されているものを検索
     </div>
     <div class="radio">
       <input type="radio" id="radio2"name="radio_serach" value="private">プライベートのものを検索
     </div>
-    </div>
+</div>
   <% end %>
   </article>
 </aside>

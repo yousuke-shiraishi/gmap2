@@ -4,7 +4,9 @@ require 'date'
 
   def search
     if params[:public]
+  #    binding.pry
       @user=User.where('name = ? AND birth = ?',params[:name],params[:birth])
+    #  binding.pry
       @gmaps = @user.joins(:gmaps).where('magic_word = ?',"").map {|user| user.gmaps}.flatten.uniq.reject{|item| item.magic_word != ""}
       render template: 'gmaps/index'
     else
@@ -51,7 +53,7 @@ end
 
     if logged_in? then
       redirect_to new_gmap_path
-    elseUsersController
+    else
       redirect_to new_user_path
     end
   end
@@ -67,6 +69,6 @@ end
     else
       false
     end
-  end
 
+  end
 end

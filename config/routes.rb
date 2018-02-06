@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+root 'gmaps#index'
+
 post 'gmaps/destroy_images'
   get 'users/touroku'
-  root to: 'gmaps#index'
+  #root to: 'gmaps#index'
 
   resources :sessions, only: %i[new create destroy]
   resources :users do

@@ -7,8 +7,9 @@ module UsersHelper
     /(\d{4})年(\d{1,2})月(\d{1,2})日/ =~ str
     birth_time =[$1,$2,$3]
     birth_time=birth_time.join("/")
+    str = birth_time
     end
-      !! Date.parse(birth_time) rescue false
+      !! Date.parse(str) rescue false
     end
 
 end

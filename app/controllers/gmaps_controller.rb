@@ -103,4 +103,6 @@ class GmapsController < ApplicationController
     def gmap_params
       params.require(:gmap).permit(:title, :coment, :magic_word, :latitude, :longitude,:image)
     end
+
+
 end
