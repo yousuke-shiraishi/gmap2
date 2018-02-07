@@ -39,6 +39,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'capistrano', '3.6.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -71,3 +76,5 @@ gem 'mini_magick'
 gem 'jquery-turbolinks'
 gem 'bootstrap-sass'
 gem 'sprockets-rails'
+gem 'unicorn' # アプリケーションサーバのunicorn
+gem 'dotenv-rails'
