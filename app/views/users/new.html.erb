@@ -1,4 +1,4 @@
-<h1>ユーザ個人情報登録</h1>
+<h1 class="text-center">ユーザ個人情報登録</h1>
 
 <% if @user.errors.any? %>
 <div id="error_explanation">
@@ -14,27 +14,27 @@
   <%= form_with(model: @user, local: true) do |f| %>
 
   <div class="field form-group">
-    <%= f.label :"名前" %>
-    <%= f.text_field :name ,class: "form-control"%>
+    <%= f.label :"名前" ,class: "center-block" %>
+    <%= f.text_field :name ,class: "form-control" %>
   </div>
   <div class="field form-group">
-    <%= f.label :"メールアドレス" %>
-    <%= f.text_field :email ,class: "form-control"%>
+    <%= f.label :"メールアドレス" ,class: "center-block" %>
+    <%= f.text_field :email ,class: "form-control" %>
   </div>
   <div class="field form-group">
-    <%= f.label :"誕生日" %>
-    <%= f.text_field :birth ,class: "form-control"%>
+    <%= f.label :"誕生日",class: "center-block" %>
+    <%= f.text_field :birth ,class: "form-control" %>
   </div>
  <div class="field form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password ,class: "form-control"%>
+    <%= f.label :password ,class: "center-block" %>
+    <%= f.password_field :password ,class: "form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :"password確認" %>
-    <%= f.password_field :password_confirmation ,class: "form-control"%>
+    <%= f.label :"password確認" ,class: "center-block" %>
+    <%= f.password_field :password_confirmation ,class: "form-control" %>
   </div>
 
-  <%= f.submit "アカウントを作成する" %>
+  <%= f.submit "アカウントを作成する" ,class: "center-block" %>
   <% end %>
 </div>

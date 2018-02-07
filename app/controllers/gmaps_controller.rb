@@ -5,7 +5,7 @@ class GmapsController < ApplicationController
   # GET /gmaps.json
   require 'date'
   def index
-    @gmaps = Gmap.all
+    @gmaps = Gmap.where(magic_word: "")
   end
 
   # GET /gmaps/1

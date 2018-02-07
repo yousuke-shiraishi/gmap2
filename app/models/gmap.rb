@@ -4,7 +4,7 @@ class Gmap < ApplicationRecord
   validates :latitude,presence:true
   validates :longitude,presence:true
   validates :image,presence:true
-  validates :magic_word,presence:false
+  
   belongs_to :user
 mount_uploader :image, ImageUploader
 end

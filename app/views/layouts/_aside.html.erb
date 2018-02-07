@@ -24,15 +24,15 @@
 
     <% end %>
     <br>
-    <div class="text-center">
-      <%= form.label :"画像" %>
+    <div class="center-block">
+      <%= form.label :"画像"  ,class: "center-block"%>
     </div>
-      <div class="text-center"><%= form.file_field :image %></div>
+      <div><%= form.file_field :image  ,class: "center-block"%></div>
       <%= form.hidden_field :id %>
 
 
-    <div class="actions text-center">
-      <%= form.submit '保存する' %>
+    <div class="actions">
+      <%= form.submit '保存する' , class: "center-block"%>
     </div>
     <% end %>
 
@@ -40,27 +40,27 @@
     <!--  検索拡張機能  -->
 
     <%= form_tag({controller: "users", action: "search",remote:true} ,{method: "get",id:"form1"}) do %>
-<div class="text-center"><p>
-      <label>名前</label>
+<div><p>
+      <label class="center-block">名前</label>
     </p></div>
-    <p class="text-center" ><input type="text" name="name" required><br></p>
-    <div class="text-center"><p>
-      <label>生年月日</label>
+    <p><input  class="center-block" type="text" name="name" required><br></p>
+    <div><p>
+      <label class="center-block">生年月日</label>
     </p></div>
-    <div class="text-center"><p><input  class="text-center"type="date" name="birth" required><br></p></div>
-    <div class="text-center"><p class="text-center"><%= submit_tag '検索する', :name => 'public' %></p></div>
+    <div><p><input class="center-block" type="date" name="birth" required><br></p></div>
+    <div><p><%= submit_tag '検索する', :name => 'public' , class:"center-block"%></p></div>
     <% end %>
 
     <%= form_tag({controller: "users", action: "search",remote:true} ,{method: "get",id:"form2"}) do %>
-    <div class="text-center"><p>
-      <label>メールアドレス</label>
+    <div><p>
+      <label class="center-block">メールアドレス</label>
     </p></div>
-    <div class="text-center"><p><input type="email" name="email" required><br></p></div>
-    <div class="text-center"><p>
-      <label>合言葉</label>
+    <div><p><input  class="center-block" type="email" name="email" required><br></p></div>
+    <div class="center-block"><p>
+      <label class="center-block">合言葉</label>
     </p></div>
-  <div class="text-center"><p><input type="text" name="magic_word" required></p></div>
-    <div class="text-center"><p><%= submit_tag '検索する', :name => 'private' %></p></div>
+  <div><p><input class="center-block" type="text" name="magic_word" required></p></div>
+    <div><p><%= submit_tag '検索する', :name => 'private' , class: "center-block"%></p></div>
     <% end %>
     <div class="form-group text-center">
     <div class="radio">

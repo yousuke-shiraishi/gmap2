@@ -14,29 +14,29 @@
   <%= form_with(model: @user, local: true) do |f| %>
 
   <div class="field form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name ,class: "form-control"%>
+    <%= f.label :name ,class: "center-block" %>
+    <%= f.text_field :name ,class: "form-control" %>
   </div>
   <div class="field form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email ,class: "form-control"%>
+    <%= f.label :email ,class: "center-block" %>
+    <%= f.text_field :email ,class: "form-control" %>
   </div>
   <div class="field form-group">
-    <%= f.label :birth %>
-    <%= f.text_field :birth ,class: "form-control"%>
+    <%= f.label :birth ,class: "center-block" %>
+    <%= f.text_field :birth ,class: "form-control" %>
   </div>
   <div class="field form-group">
-     <%= f.label :password %>
-     <%= f.password_field :password ,class: "form-control"%>
+     <%= f.label :password ,class: "center-block" %>
+     <%= f.password_field :password ,class: "form-control" %>
    </div>
 
    <div class="field form-group">
-     <%= f.label :password_confirmation %>
-     <%= f.password_field :password_confirmation ,class: "form-control"%>
+     <%= f.label :password_confirmation ,class: "center-block" %>
+     <%= f.password_field :password_confirmation ,class: "form-control" %>
    </div>
 
 
 
-  <%= f.submit "編集を確定する" %>
+  <%= f.submit "編集を確定する" ,class: "center-block" %>
   <% end %>
 </div>

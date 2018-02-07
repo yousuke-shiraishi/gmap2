@@ -6,7 +6,7 @@ class User < ApplicationRecord
   before_save { email.downcase! }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 } ,on: :create
-  validates :birth, presence: true#, birth_format: true
+  validates :birth, presence: true
   has_many :gmaps
   mount_uploader :image, ImageUploader
 
