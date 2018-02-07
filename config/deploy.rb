@@ -5,7 +5,7 @@ lock '3.6.0'
 set :application, 'gmaps-dic'
 
 # cloneするgitのレポジトリ（xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
-set :repo_url, 'https://github.com/yousuke-shiraishi/gmaps-dic'
+set :repo_url, 'https://github.com/yousuke-shiraishi/gmaps-dic.git'
 
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/gmaps-dic'
