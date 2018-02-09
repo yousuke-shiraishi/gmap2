@@ -49,7 +49,7 @@ function initMap() {
               url: 'gmaps/destroy_images',
               type: 'POST',
               data: //{
-                ('marker=' + `${marker.id}`),
+                ('marker=' + marker.id),
               //_method: 'DELETE'
               processData: false, //おまじない
               contentType: false, //おまじない
