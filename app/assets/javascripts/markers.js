@@ -64,7 +64,7 @@ function initMap() {
               });
 
           }
-          if (largeInfowindow[i].marker === marker) {
+          if (largeInfowindow[i].marker === this.marker) {
             marker.setMap(null);
             marker = null;
           }
