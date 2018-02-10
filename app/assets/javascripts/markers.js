@@ -1,4 +1,5 @@
 function initMap() {
+  google.maps.event.trigger( map, "resize" ) ;
 
   var markers = [];
   var m;
