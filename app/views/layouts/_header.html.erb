@@ -9,18 +9,18 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="https://gmaps-dic.herokuapp.com/gmaps">
-				Gmaps
-			</a>
+      <a class="navbar-brand" href="javascript:void(0)" onclick="initMap()">
+        Gmaps
+      </a>
+
 		</div>
     <div class="collapse navbar-collapse" id="navbarEexample3">
 			<ul class="nav navbar-nav navbar-right">
-
-            <% if logged_in? %>
-            <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+          <% if logged_in? %>
+            <li class="pull-right"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
             <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
           <% else %>
-            <li><%= link_to "ログイン", new_session_path  %></li>
+            <li class="pull-right"><%= link_to "ログイン", new_session_path  %></li>
             <li><%= link_to "サインアップ", new_user_path  %></li>
             <% end %>
           </ul>

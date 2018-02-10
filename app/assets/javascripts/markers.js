@@ -1,5 +1,4 @@
 function initMap() {
-  google.maps.event.trigger( map, "resize" ) ;
 
   var markers = [];
   var m;
@@ -29,7 +28,7 @@ function initMap() {
     });
 
     m = marker;
-    markerEvent(i, largeInfowindow, m, addresses[i].image);
+    markerEvent(i, largeInfowindow, m, addresses[i]);
 
     markers.push(m);
     bounds.extend(markers[i].position);
@@ -42,7 +41,7 @@ function initMap() {
     marker.addListener('click', function() { // マーカーをクリックしたとき
       if (largeInfowindow[i].marker != marker) {
         largeInfowindow[i].marker = marker;
-        largeInfowindow[i].setContent('<img class="picture" src=' + address["url"] + ' width="300px" height="300px" alt=""/>' + '<div><p>' + marker.title + '</p></div>' + '<div><p>' + largeInfowindow[i].content + '</p></div>');
+        largeInfowindow[i].setContent('<img class="picture" src=' + address.image["url"] + ' width="300px" height="300px" alt=""/>' + '<div><p>' + marker.title + '</p></div>' + '<div><p>' + largeInfowindow[i].content + '</p></div>');
         largeInfowindow[i].open(map, marker); // 吹き出しの表示
         largeInfowindow[i].addListener('closeclick', function() {
           if (!!confirm('本当に削除しますか?削除すると戻せません。')) {
@@ -64,10 +63,10 @@ function initMap() {
                 alert('他の人のマーカー情報は消せません。');
               });
 
-          }
-          if (largeInfowindow[i].marker === this.marker) {
+          
             marker.setMap(null);
             marker = null;
+            initMap();
           }
         });
       }
