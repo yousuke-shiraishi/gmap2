@@ -23,15 +23,15 @@
   </div>
   <div class="field form-group">
     <%= f.label :"誕生日",class: "center-block" %>
-    <%= f.text_field :birth ,class: "form-control" %>
+    <%= f.date_field :birth,value: Time.now.strftime("%Y-%m-%d") ,class: "form-control" %>
   </div>
  <div class="field form-group">
-    <%= f.label :password ,class: "center-block" %>
+    <%= f.label :"パスワード" ,class: "center-block" %>
     <%= f.password_field :password ,class: "form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :"password確認" ,class: "center-block" %>
+    <%= f.label :"パスワード確認" ,class: "center-block" %>
     <%= f.password_field :password_confirmation ,class: "form-control" %>
   </div>
 

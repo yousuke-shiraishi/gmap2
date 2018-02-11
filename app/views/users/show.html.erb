@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>メールアドレス:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>画像:</strong>
   <%= File.basename(@user.image_url) %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Birth:</strong>
+  <strong>生年月日:</strong>
   <%= @user.birth %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to '編集する', edit_user_path(@user) %> |
 
 <%= link_to '進む', root_path %>

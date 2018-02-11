@@ -1,23 +1,23 @@
 
 <p>
-  <strong>Latitude:</strong>
+  <strong>緯度:</strong>
   <%= @gmap.latitude %>
 </p>
 
 <p>
-  <strong>Longitude:</strong>
+  <strong>経度:</strong>
   <%= @gmap.longitude %>
 </p>
 
 <p>
-  <strong>Coment:</strong>
+  <strong>コメント:</strong>
   <%= @gmap.coment %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル:</strong>
   <%= @gmap.title %>
 </p>
 
-<%= link_to 'Edit', edit_gmap_path(@gmap) %> |
-<%= link_to 'Back', gmaps_path %>
+<%= link_to '編集する', edit_gmap_path(@gmap) %> |
+<%= link_to '戻る', gmaps_path %>
