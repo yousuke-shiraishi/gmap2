@@ -1,3 +1,5 @@
+
+
 <h1 class="text-center">ログイン</h1>
 <%= form_with(scope: :session, url: sessions_path) do |f| %>
 <div class="row">
@@ -9,11 +11,15 @@
   <div class="form-group">
     <%= f.label :password ,class:"col-xs-4 col-md-4 col-lg-4 text-center"%>
     <%= f.password_field :password, class:"col-xs-4 col-md-4 col-lg-4" %>
-  </div>
+ </div>
   <br>
   <div class="text-center">
   <%= f.submit "ログイン"%>
   </div>
+
 </div>
 
 <% end %>
+<%# flash.each do |key, value| %>
+    <%#= content_tag(:div, value, class: "#{key}") %>
+  <%# end %>

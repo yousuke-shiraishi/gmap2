@@ -8,6 +8,7 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   </head>
   <body>
     <%= render 'layouts/header'%>
@@ -32,13 +33,18 @@
     </div>
   </div>
   <!-- flashにメッセージがある時 -->
-  <% unless flash.empty? %>
-  <script type="text/javascript">
-    <% flash.each do |f| %>
-    <% type = f[0].to_s.gsub('danger','error').gsub('alert','error').gsub('notice','info') %>
-    toastr['<%= type %>']('<%= f[1] %>');
-    <% end %>
-  </script>
+  <!-- <%# unless flash.empty? %>
+  	<script type="text/javascript">
+  		<% flash.each do |f| %>
+      <% type = f[0].to_s.gsub('danger','error').gsub('alert','error').gsub('notice','info') %>
+        toastr['<%#= type %>']('<%#= f[1] %>');
+      <% end %>
+   </script>
+<%# end %> -->
+<% flash.each do |key, value| %>
+<% binding.pry %>
+    <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
+
 </body>
 </html>

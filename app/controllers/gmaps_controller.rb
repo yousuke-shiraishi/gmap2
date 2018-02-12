@@ -46,11 +46,13 @@ class GmapsController < ApplicationController
     respond_to do |format|
       if @gmap.save
         #format.html { redirect_to @gmap, notice: 'Gmap was successfully created.' }
-        format.html { redirect_to root_path notice: 'Gmap was successfully created.' }
+        format.html { redirect_to root_path }
+        flash[:success] = 'Gmapデータが作られました'
         format.json { render :show, status: :created, location: @gmap }
       else
         format.html { render :new }
         format.json { render json: @gmap.errors, status: :unprocessable_entity }
+        flash[:alert] = 'Gmapデータを作れていません'
       end
     end
   end
@@ -64,7 +66,7 @@ class GmapsController < ApplicationController
   def update
     respond_to do |format|
       if @gmap.update(gmap_params)
-        format.html { redirect_to @gmap, notice: 'Gmap was successfully updated.' }
+        format.html { redirect_to @gmap,flash[:success] =  'Gmapデータがアップデートされました' }
         format.json { render :show, status: :ok, location: @gmap }
       else
         format.html { render :edit }

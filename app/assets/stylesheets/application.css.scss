@@ -10,11 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require toastr
  *= require_tree .
  *= require_self
  */
-
+ @import "toastr";
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -69,10 +68,9 @@ label{
   vertical-align: middle;
   font-size: 17px;
 }
-//
-// .container-fluid {
-//   height: 100%;
-// }
+
+.fa-example {color: pink}
+
 
 .navbar.navbar-default {
   background-color: #0f0f0f;
