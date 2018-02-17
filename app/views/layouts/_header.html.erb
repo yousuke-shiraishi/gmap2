@@ -17,12 +17,12 @@
     <div class="collapse navbar-collapse" id="navbarEexample3">
 			<ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
-            <li class="pull-right"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
-            <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
+           <li class="pull-right"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+           <li class="pull-right"><%= link_to "プロフィール", user_path(current_user.id) %></li>
           <% else %>
-            <li class="pull-right"><%= link_to "ログイン", new_session_path  %></li>
-            <li><%= link_to "サインアップ", new_user_path  %></li>
-            <% end %>
+           <li class="pull-right"><%= link_to "ログイン", new_session_path  %></li>
+           <li class="pull-right"><%= link_to "サインアップ", new_user_path  %></li>
+          <% end %>
           </ul>
     </nav>
 </header>

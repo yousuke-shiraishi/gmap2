@@ -40,11 +40,6 @@
 <!-- <button onclick="getPosition();">位置情報を取得する</button>
 <input type="button" value="提出" id="button1" onClick="_submit()" > -->
 
-
-
-
-<%= form_with(model: @gmap=Gmap.new, local: true, :html => {multipart: true}) do |form| %>
-<!-- <%#= form_with(model: @gmap=Gmap.new, local: true, :html => {multipart: true} ,url: choose_new_or_edit) do |form| %> -->
 <% if @gmap.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@gmap.errors.count, "error") %>
@@ -56,6 +51,11 @@
     <% end %>
  </ul>
  <% end %>
+
+
+
+<%= form_with(model: @gmap=Gmap.new, local: true, :html => {multipart: true}) do |form| %>
+<!-- <%#= form_with(model: @gmap=Gmap.new, local: true, :html => {multipart: true} ,url: choose_new_or_edit) do |form| %> -->
 
 <div class="field">
   <%#= form.label :latitude %>

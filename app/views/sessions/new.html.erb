@@ -1,7 +1,7 @@
 
 
 <h1 class="text-center">ログイン</h1>
-<%= form_with(scope: :session, url: sessions_path) do |f| %>
+<%= form_with(scope: :session, url: sessions_path, method: :post, local: true) do |f| %>
 <div class="row">
 <div class="form-group">
     <%= f.label :"メールアドレス" ,class:"col-xs-4 col-md-4 col-lg-4 text-center"%>

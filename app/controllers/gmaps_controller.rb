@@ -45,21 +45,25 @@ class GmapsController < ApplicationController
 
     respond_to do |format|
       if @gmap.save
-        #format.html { redirect_to @gmap, notice: 'Gmap was successfully created.' }
+        flash[:success] = "マーカーを作るのに成功しました"
         format.html { redirect_to root_path }
-        flash[:success] = 'Gmapデータが作られました'
         format.json { render :show, status: :created, location: @gmap }
       else
-        format.html { render :new }
+        flash[:danger] = "マーカーを作るのに失敗しました"
+        format.html { render :new}
         format.json { render json: @gmap.errors, status: :unprocessable_entity }
-        flash[:alert] = 'Gmapデータを作れていません'
+
       end
     end
   end
    def destroy_images
-     @gmap = Gmap.find_by(params[:marker])
-     @gmap.destroy if (@gmap.user == current_user)
-     render json: success if (@gmap.user == current_user)
+    # binding.pry
+     @gmap = Gmap.find(params[:q])
+     #@gmap = Gmap.find(params[:marker])
+     @gmap.destroy if (@gmap.user_id == current_user.id)
+    # binding.pry
+     #render json: success if (@gmap.user_id == current_user.id)
+    render :json => {:gmap => @gmap} if @gmap.destroyed?
    end
   # PATCH/PUT /gmaps/1
   # PATCH/PUT /gmaps/1.json
