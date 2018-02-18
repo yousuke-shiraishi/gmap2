@@ -34,9 +34,7 @@
   </div>
   <!-- flashにメッセージがある時 -->
   <% unless flash.empty? %>
-  <% #binding.pry %>
-
-  	<script type="text/javascript">
+    	<script type="text/javascript">
       <% flash.each do |f| %>
       <% type = f[0].to_s.gsub('danger','error').gsub('alert','error').gsub('notice','info') %>
         toastr['<%= type %>']('<%= f[1] %>');
