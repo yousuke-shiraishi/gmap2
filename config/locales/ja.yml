@@ -3,13 +3,13 @@ ja:
   activerecord:
     models:
       gmap: "Gmap"
-      user: "ユーザー"
+      member: "ユーザー"
     attributes:
       gmap:
         title: "タイトル"
         coment: "コメント"
         magic_word: "合言葉"
-      user:
+      member:
         title: "タイトル"
         name: "名前"
         email: "メールアドレス"

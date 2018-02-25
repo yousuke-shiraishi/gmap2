@@ -1,11 +1,10 @@
 <h1 class="text-center">ユーザ個人情報登録</h1>
 
-
-<% if @user.errors.any? %>
+<% if @member.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@user.errors.count, "個のエラーがあります、") %>保存されていません。</h2>
+  <h2><%= pluralize(@member.errors.count, "個のエラーがあります、") %>保存されていません。</h2>
   <ul>
-    <% @user.errors.full_messages.each do |message| %>
+    <% @member.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
@@ -13,8 +12,7 @@
 <% end %>
 
 <div class="groupbox">
-  <%= form_with(model: @user, local: true) do |f| %>
-
+  <%= form_with(model: @member, local: true) do |f| %>
   <div class="field form-group">
     <%= f.label :"名前" ,class: "center-block" %>
     <%= f.text_field :name ,class: "form-control" %>
@@ -27,16 +25,14 @@
     <%= f.label :"誕生日",class: "center-block" %>
     <%= f.date_field :birth,value: Time.now.strftime("%Y-%m-%d") ,class: "form-control" %>
   </div>
- <div class="field form-group">
+  <div class="field form-group">
     <%= f.label :"パスワード" ,class: "center-block" %>
     <%= f.password_field :password ,class: "form-control" %>
   </div>
-
   <div class="field form-group">
     <%= f.label :"パスワード確認" ,class: "center-block" %>
     <%= f.password_field :password_confirmation ,class: "form-control" %>
   </div>
-
   <%= f.submit "アカウントを作成する" ,class: "center-block" %>
   <% end %>
 </div>

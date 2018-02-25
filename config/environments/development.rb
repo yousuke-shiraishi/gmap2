@@ -43,7 +43,8 @@ Rails.application.configure do
   config.assets.debug = true
 
 
-
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } # 20180220追記
+  config.action_mailer.delivery_method = :letter_opener # 20180220追記
 ###################################################################
 config.action_controller.allow_forgery_protection = false
 #########################################################################

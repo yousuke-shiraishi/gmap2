@@ -1,6 +1,6 @@
 class GmapsController < ApplicationController
-  before_action :login_validate, only: %i[new edit show]
   before_action :set_gmap, only: %i[edit show update]
+  before_action :authenticate_member!, only: %i[new edit update destroy]
   # GET /gmaps
   # GET /gmaps.json
   require 'date'
@@ -27,7 +27,7 @@ class GmapsController < ApplicationController
   end
   def check
     #@gmap = Gmap.new(gmap_params)
-    @gmap = current_user.gmaps.build(gmap_params)
+    @gmap = current_member.gmaps.build(gmap_params)
     render :new if @gmap.invalid?
   end
 
@@ -37,12 +37,9 @@ class GmapsController < ApplicationController
   def create
     @gmap = Gmap.new(gmap_params)
   #  @gmap.image.retrieve_from_cache! params[:cache][:icreated_atmage]
-    @gmap.user_id = current_user.id # 現在ログインしているuserのidをpictureのuser_idカラムに挿入する。
+    @gmap.member_id = current_member.id # 現在ログインしているmemberのidをpictureのmember_idカラムに挿入する。
     #キャッシュから画像を復元する
-  #  GmapstoMailer.gmapto_mail(@gmap.user).deliver
-    # 省略
-     #@gmap.user=current_user
-
+  #  GmapstoMailer.gmapto_mail(@gmap.member).deliver
     respond_to do |format|
       if @gmap.save
         flash[:success] = "マーカーを作るのに成功しました"
@@ -52,18 +49,17 @@ class GmapsController < ApplicationController
         flash[:danger] = "マーカーを作るのに失敗しました"
         format.html { render :new}
         format.json { render json: @gmap.errors, status: :unprocessable_entity }
-
       end
     end
   end
+
    def destroy_images
-    # binding.pry
-     @gmap = Gmap.find(params[:q])
-     #@gmap = Gmap.find(params[:marker])
-     @gmap.destroy if (@gmap.user_id == current_user.id)
-    # binding.pry
-     #render json: success if (@gmap.user_id == current_user.id)
-    render :json => {:gmap => @gmap} if @gmap.destroyed?
+    @gmap = Gmap.find(params[:q])
+    #@gmap = Gmap.find(params[:marker])
+    @gmap.destroy if (@gmap.member_id == current_member.id)
+    #binding.pry
+    #render json: success if (@gmap.member_id == current_member.id)
+    render json: {gmap:  @gmap} if @gmap.destroyed?
    end
   # PATCH/PUT /gmaps/1
   # PATCH/PUT /gmaps/1.json
@@ -83,22 +79,8 @@ class GmapsController < ApplicationController
   # DELETE /gmaps/1.json
   def destroy
      @gmap = Gmap.find_by(params[:marker])
-     @gmap.destroy #if (@gmap.user == current_user) and (Time.now - @gmap.created_at > 1.minutes)
+     @gmap.destroy #if (@gmap.member == current_member) and (Time.now - @gmap.created_at > 1.minutes)
   end
-
-  def login_validate
-    #  if !logged_in?
-    #     redirect_to new_session_path
-    if session[:user_id]
-      begin
-        @user = User.find(session[:user_id])
-      rescue ActiveRecord::RecordNotFound
-        reset_session
-      end
-    end
-    redirect_to new_session_path unless @user
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gmap

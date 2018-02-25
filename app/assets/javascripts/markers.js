@@ -63,7 +63,7 @@ function markerEvent(i, largeInfowindow, marker, address,map) {
             function(data) {
               alert('削除に成功しました。');
               marker.setMap(null);
-              // marker = null;
+              marker = null;
             //  initMap();
             },
             function() {

@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-#root 'gmaps#index'
-
-post 'gmaps/destroy_images'
-  get 'users/touroku'
   root to: 'gmaps#index'
+  devise_for :members
 
-  resources :sessions, only: %i[new create destroy]
-  resources :users do
-    get :search, on: :collection
-  end
+
+  get 'members/search'
+  post 'gmaps/destroy_images'
+  get 'members/touroku'
+
+#  resources :sessions, only: %i[new create destroy]
+  resources :members
   resources :gmaps, only: %i[index new show create edit update destroy] do
     collection do
       get :confirm
@@ -16,6 +16,9 @@ post 'gmaps/destroy_images'
     end
   end
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
 
 

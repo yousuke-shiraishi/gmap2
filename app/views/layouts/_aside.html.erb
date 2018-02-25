@@ -1,78 +1,82 @@
 <aside>
   <article class="">
-    <% if logged_in? %>
+    <% if member_signed_in? %>
     <h1 class="text-center">あなたの画像</h1>
     <br>
-    <div class="text-center" ><%= image_tag current_user.image ,class: :"img-rounded" %></div>
+    <div class="text-center"><%= image_tag current_member.image ,class: :"img-rounded" %></div>
     <br>
-
-<div class="text-center"><%= current_user.name %></div>
-
+    <div class="text-center"><%= current_member.name %></div>
     <br>
-    <%= form_with(model: current_user, local: true) do |form| %>
-
-    <% if current_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(current_user.errors.count, "個エラーがあります,") %>保存されていません。</h2>
-
-      <ul>
-        <% current_user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-
-    <% end %>
-    <br>
-    <div class="center-block">
-      <%= form.label :"画像"  ,class: "center-block"%>
-    </div>
-      <div><%= form.file_field :image  ,class: "center-block"%></div>
-      <%= form.hidden_field :id %>
-
-
-    <div class="actions">
-      <%= form.submit '保存する' , class: "center-block"%>
-    </div>
-    <% end %>
-
     <h1 class="text-center">絞り込み検索</h1>
-    <!--  検索拡張機能  -->
-
-    <%= form_tag({controller: "users", action: "search",remote:true} ,{method: "get",id:"form1"}) do %>
-<div><p>
-      <label class="center-block">名前</label>
-    </p></div>
-    <p><input  class="center-block" type="text" name="name" required><br></p>
-    <div><p>
-      <label class="center-block">生年月日</label>
-    </p></div>
-    <div><p><input class="center-block" type="date" name="birth" required><br></p></div>
-    <div><p><%= submit_tag '検索する', :name => 'public' , class:"center-block"%></p></div>
+    <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id:"form1"}) do %>
+    <div>
+      <p>
+        <label class="center-block">名前</label>
+      </p>
+    </div>
+    <p>
+      <input class="center-block" type="text" name="name" required><br>
+    </p>
+    <div>
+      <p>
+        <label class="center-block">生年月日</label>
+      </p>
+    </div>
+    <div>
+      <p>
+        <input class="center-block" type="date" name="birth" required><br>
+      </p>
+    </div>
+    <div>
+      <p>
+        <%= submit_tag '検索する',name: 'public' , class:"center-block"%>
+      </p>
+    </div>
     <% end %>
 
-    <%= form_tag({controller: "users", action: "search",remote:true} ,{method: "get",id:"form2"}) do %>
-    <div><p>
-      <label class="center-block">メールアドレス</label>
-    </p></div>
-    <div><p><input  class="center-block" type="email" name="email" required><br></p></div>
-    <div class="center-block"><p>
-      <label class="center-block">合言葉</label>
-    </p></div>
-  <div><p><input class="center-block" type="text" name="magic_word" required></p></div>
-    <div><p><%= submit_tag '検索する', :name => 'private' , class: "center-block"%></p></div>
+    <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id:"form2"}) do %>
+    <div>
+      <p>
+        <label class="center-block">メールアドレス</label>
+      </p>
+    </div>
+    <div>
+      <p>
+        <input class="center-block" type="email" name="email" required><br>
+      </p>
+    </div>
+    <div class="center-block">
+      <p>
+        <label class="center-block">合言葉</label>
+      </p>
+    </div>
+    <div>
+      <p>
+        <input class="center-block" type="text" name="magic_word" required>
+      </p>
+    </div>
+    <div>
+      <p><%= submit_tag '検索する',name: 'private' ,class: "center-block"%></p>
+    </div>
     <% end %>
     <div class="form-group text-center">
-    <div class="radio">
-      <input type="radio" id="radio1" name="radio_serach" value="public" checked >全体に公開されているものを検索
+      <div class="radio">
+        <input type="radio" id="radio1" name="radio_serach" value="public" checked>全体に公開されているものを検索
+      </div>
+      <div class="radio">
+        <input type="radio" id="radio2" name="radio_serach" value="private">プライベートのものを検索
+      </div>
     </div>
-    <div class="radio">
-      <input type="radio" id="radio2"name="radio_serach" value="private">プライベートのものを検索
-    </div>
-</div>
-<% else %>
-<i class="fa fa-heart faa-pulse animated fa-example"><p>このサイトはGoogleMapを使って現在地にマーカーを立てられます。マーカーには写真とタイトルとコメントが載せられるよ<br>
-楽しんでいってね！</p><br><br><p>災害のときは大事な人のことを検索しよう。このアプリの動機の７５％はそのために作りました。</p></i>
-  <% end %>
+  <% else %>
+    <i class="fa fa-heart faa-pulse animated fa-example">
+      <p>
+        このサイトはGoogleMapを使って現在地にマーカーを立てられます。マーカーには写真とタイトルとコメントが載せられるよ<br>
+        楽しんでいってね！
+      </p><br><br>
+      <p>
+        災害のときは大事な人のことを検索しよう。このアプリの動機の７５％はそのために作りました。 タイトルは２５文字、本文は２５５文字まで書き込めます。
+      </p>
+    </i>
+    <% end %>
   </article>
 </aside>
