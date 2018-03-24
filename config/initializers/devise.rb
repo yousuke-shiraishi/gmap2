@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'b214acdd326f29449c4c1196f1f595a6bbcbbd2d4fe335b9a315b1c84c61899999a89db2caa90738b8abaa3e0ae75563732d2d4badfc8565329c6558a06d543b'
+  config.secret_key = ENV["DEVISESECRETKEY"]
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -105,10 +105,10 @@ Devise.setup do |config|
   # Limiting the stretches to just one in testing will increase the performance of
   # your test suite dramatically. However, it is STRONGLY RECOMMENDED to not use
   # a value less than 10 in other environments. Note that, for bcrypt (the default
-  # algorithm), the cost increases exponentially with the number of stretches (e.g.
+  # algoriconfig.mailer = 'Users::Mailer'thm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 11
-
+  config.mailer = 'Members::Mailer'
   # Set up a pepper to generate the hashed password.
   # config.pepper = '5cd3e9c2a53eb46857b96a16c8de5f33fbad1ae5e91b766f66dddc5f3fae964b4c9573f3a6abd5387d34c2c44f3f687515bed4f602f542f75ec03c58e85236dc'
 

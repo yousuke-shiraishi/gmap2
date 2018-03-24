@@ -10,17 +10,38 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require 'css/lightbox.min'
  *= require_tree .
  *= require_self
  */
+
  @import "toastr";
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+strong{
+  font-size: 1.5rem;
+  color:pink;
+}
+
+
 
 label{
   text-align:center;
 }
 
+.box22{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    background: #99cc;
+    border-left: solid 6px #5bb7ae;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+.box22 p {
+    margin: 0;
+    padding: 0;
+}
 
  #ｇmaps img {
    max-width: none;
@@ -40,22 +61,10 @@ label{
   display: none;
  }
 
-// .wrapper {
-//   position: relative;
-//   padding-top: 0px;
-//   padding-left: 0px;
-//   padding-right: 0px;
-//   padding-bottom: 20px;
-//   display: block;
-//   min-width: 320px;
-//   width: 30%;
-//   min-height: 250px;
-//   margin: 25px 1.5%;
-//   border:5px solid #5abbe4;
-//   //background: linear-gradient(180deg, rgba(49, 164, 203, 1), rgba(49, 164, 203, 0.3));
-//   overflow: hidden;
-// }
-
+.marker_description{
+  font-size: 3rem;
+  color: pink;
+}
 
 #blogpr {
   float: right;
@@ -105,24 +114,13 @@ html {
 
 body {
   position: relative;
-  width: 100%;// .wrapper {
-//   position: relative;
-//   padding-top: 0px;
-//   padding-left: 0px;
-//   padding-right: 0px;
-//   padding-bottom: 20px;
-//   display: block;
-//   min-width: 320px;
-//   width: 30%;
-//   min-height: 250px;
-//   margin: 25px 1.5%;
-//   border:5px solid #5abbe4;
-//   //background: linear-gradient(180deg, rgba(49, 164, 203, 1), rgba(49, 164, 203, 0.3));
-//   overflow: hidden;
-// }
+  width: 100%;
   height: auto;
   /*color: #333;*/
-  background-color: #F8F8F8;
+  background-color: #FFDFCF;
+  background-image:image-url("show.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 table {

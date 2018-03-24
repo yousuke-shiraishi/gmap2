@@ -14,6 +14,7 @@
 //= require rails-ujs
 //= require jquery/dist/jquery.min.js
 //= require jquery_ujs
+//= require js/lightbox.min
 //= require jquery.turbolinks
 //= require turbolinks
 //= require underscore

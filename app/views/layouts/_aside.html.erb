@@ -8,7 +8,7 @@
     <div class="text-center"><%= current_member.name %></div>
     <br>
     <h1 class="text-center">絞り込み検索</h1>
-    <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id:"form1"}) do %>
+    <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id: "form1"}) do %>
     <div>
       <p>
         <label class="center-block">名前</label>
@@ -34,7 +34,7 @@
     </div>
     <% end %>
 
-    <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id:"form2"}) do %>
+    <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id: "form2"}) do %>
     <div>
       <p>
         <label class="center-block">メールアドレス</label>
@@ -61,22 +61,39 @@
     <% end %>
     <div class="form-group text-center">
       <div class="radio">
-        <input type="radio" id="radio1" name="radio_serach" value="public" checked>全体に公開されているものを検索
+        <input type="radio" id="radio1" name="radio_serach" value="public" checked><strong>全体に公開されているものを検索</strong>
       </div>
       <div class="radio">
-        <input type="radio" id="radio2" name="radio_serach" value="private">プライベートのものを検索
+        <input type="radio" id="radio2" name="radio_serach" value="private"><strong>プライベートのものを検索</strong>
       </div>
     </div>
   <% else %>
-    <i class="fa fa-heart faa-pulse animated fa-example">
-      <p>
-        このサイトはGoogleMapを使って現在地にマーカーを立てられます。マーカーには写真とタイトルとコメントが載せられるよ<br>
-        楽しんでいってね！
-      </p><br><br>
-      <p>
-        災害のときは大事な人のことを検索しよう。このアプリの動機の７５％はそのために作りました。 タイトルは２５文字、本文は２５５文字まで書き込めます。
-      </p>
-    </i>
+  <div><strong><%= link_to "最初にお読みください",{:controller => "/members",:action=>"downloadpdf"} %></strong></div>
+  <div class="box22">
+      <i class="fa fa-heart faa-pulse animated fa-example">
+        <p>
+          このサイトはGoogleMapを使って現在地にマーカーを立てられます。マーカーには写真とタイトルとコメントが載せられるよ<br>
+          楽しんでいってね！
+        </p><br><br>
+        <p>
+          災害のときは大事な人のことを検索しよう。このアプリの動機の７５％はそのために作りました。 タイトルは２５文字、本文は２５５文字まで書き込めます。
+        </p>
+      </i>
+  </div>
+  <div class="box22">
+      <i class="fa fa-heart faa-pulse animated fa-example">
+        <p>今回アプリを作った目的は現在地にタイトル、コメント、写真を載せられかつそれを検索できるアプリを作り新しい
+        SNSになればと思いまずはベータ版を作ってみました。
+        災害で瓦礫に埋まっている時にこれがあれば親戚、友人が検索してくれれば高確率で埋もれている場所を特定できますし
+        孤立している場所、又は水や食料が必要な場合でも友人がいれば助かる可能性が高いと思われます。
+        一般に公開するを選択すればオープンなマーカーを立てられますし自分の付近にどんな状況の人がいるかも調べられると思います。
+        </p>
+        <p>
+        又プライベートなマーカーを立てれば自分の足跡を友人に見てもらうことも出来ますし一々グーグルマップのURLをツイッターに貼り付ける必要もないでしょう。
+        </p>
+      </i>
+  </div>
+
     <% end %>
   </article>
 </aside>

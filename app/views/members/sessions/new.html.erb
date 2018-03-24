@@ -9,7 +9,7 @@
 
   <div class="field form-group">
     <%= f.label :password ,class: "center-block" %><br />
-    <%= f.password_field :password, autocomplete: "off" ,class: "form-control"%>
+    <%= f.password_field :password, autocomplete: "off" ,class: "form-control" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -20,7 +20,7 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "アカウントを作成する" ,class: "center-block" %>
+    <%= f.submit "ログインする" ,class: "center-block" %>
   </div>
 <% end %>
 

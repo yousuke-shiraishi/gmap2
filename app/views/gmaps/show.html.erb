@@ -1,4 +1,4 @@
-
+<% if current_member.id == @gmap.member_id %>
 <p>
   <strong>緯度:</strong>
   <%= @gmap.latitude %>
@@ -20,4 +20,5 @@
 </p>
 
 <%= link_to '編集する', edit_gmap_path(@gmap) %> |
+<% end %>
 <%= link_to '戻る', gmaps_path %>

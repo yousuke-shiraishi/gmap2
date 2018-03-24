@@ -9,6 +9,8 @@ ja:
         title: "タイトル"
         coment: "コメント"
         magic_word: "合言葉"
+        latitude: "経度"
+        longitude: "緯度"
       member:
         title: "タイトル"
         name: "名前"

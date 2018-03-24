@@ -1,7 +1,5 @@
 
-
-$(function (){
-flag=true;
+$(document).on('turbolinks:load', function() { flag=true;
   $(".radio  input[type=radio]").change(function() {
     // //値が変更されたとき
      flag=!flag;
@@ -13,5 +11,5 @@ flag=true;
      $("#form2").show();
      $("#form1").hide();
    }
-  });
+   });
 });

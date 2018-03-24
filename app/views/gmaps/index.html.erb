@@ -3,8 +3,9 @@
 <br>
 <%= javascript_tag do %>
   var addresses = <%= raw @gmaps.to_json %>;
+
 <% end %>
-<div class="text-center"><%= link_to 'マーカー情報を登録する',members_touroku_path %></div>
+<div class="text-center"><strong><%= link_to 'マーカー情報を登録する',touroku_members_path ,class: "marker_description btn btn-primary"%></strong></div>
 <p>
   <script type="text/javascript">
     initMap();

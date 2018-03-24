@@ -9,19 +9,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- <a class="navbar-brand" href="javascript:void(0)" onclick="initMap()"> -->
-          <a class="navbar-brand" href="localhost:3000">
-            Gmaps
-          </a>
+          <%= link_to "Gmaps",root_path, class: "navbar-brand"%>
         </div>
         <div class="collapse navbar-collapse" id="navbarEexample3">
           <ul class="nav navbar-nav navbar-right">
             <% if member_signed_in? %>
-            <li class="pull-right"><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
-            <li class="pull-right"><%= link_to "プロフィール", member_path(current_member.id) %></li>
+            <li class="pull-right"><%= link_to "ログアウト", destroy_member_session_path, method: :delete if member_signed_in?%></li>
+            <li class="pull-right"><%= link_to "プロフィール", member_path(current_member.id) if member_signed_in?%></li>
           <% else %>
-            <li class="pull-right"><%= link_to "ログイン", new_member_session_path  %></li>
-            <li class="pull-right"><%= link_to "新規登録", new_member_registration_path %></li>
+            <li class="pull-right"><%= link_to "ログイン", new_member_session_path  unless member_signed_in?%></li>
+            <li class="pull-right"><%= link_to "新規登録", new_member_registration_path unless member_signed_in?%></li>
             <% end %>
           </ul>
         </nav>

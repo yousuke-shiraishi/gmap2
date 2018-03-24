@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: achieve_production
-  username: achieve
-  password: <%= ENV['ACHIEVE_DATABASE_PASSWORD'] %>
+  database: easymap_production
+  username: easymap
+  password: <%= ENV['EASYMAP_DATABASE_PASSWORD'] %>

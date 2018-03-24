@@ -1,19 +1,30 @@
 class MembersController < ApplicationController
   before_action :set_member, only: %i[edit show update]
+
 require 'date'
+
   def search
     if params[:public]
-  #    binding.pry
       @member=Member.where('name = ? AND birth = ?',params[:name],params[:birth])
-    #  binding.pry
-      @gmaps = @member.joins(:gmaps).where('magic_word = ?',"").map {|member| member.gmaps}.flatten.uniq.reject{|item| item.magic_word != ""}
+      @gmaps = @member.joins(:gmaps).where('magic_word = ?',"").map {|member| member.gmaps}.flatten.uniq
       render template: 'gmaps/index'
     else
-      @member=Member.where('email = ?',params[:email])
-      @gmaps=@member.joins(:gmaps).where('magic_word = ?',params[:magic_word]).map {|member| member.gmaps}.flatten.uniq.reject{|item| item.magic_word == ""}
+
+      #@member=Member.where('email = ?',params[:email])
+       #binding.pry
+      @gmaps=Gmap.joins(:member).where('magic_word = ? AND magic_word != ? AND email = ?' ,params[:magic_word] ,"",params[:email])#.map {|member| member.gmaps}.flatten.uniq
       render template: 'gmaps/index'
     end
   end
+
+  def downloadpdf
+    file_name="gmapsの理念.pdf"
+    filepath = Rails.root.join('public',file_name)
+    stat = File::stat(filepath)
+    send_file(filepath, :filename => file_name, :length => stat.size)
+  end
+
+
 
   def touroku
     if member_signed_in? then
@@ -25,8 +36,8 @@ require 'date'
 
   private
 
-  def set_member
-    @member = Member.find(params[:id])
-  end
+    def set_member
+      @member = Member.find(params[:id])
+    end
 
 end
