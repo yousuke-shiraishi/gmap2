@@ -3,11 +3,11 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "lightbox2": "^2.10.0"
   },
-
   "engines": {
-    "yarn": "1.1.0",
-    "node": "7.9.0"
+    "yarn": "1.2.1",
+    "node": "8.10.0"
   }
 }

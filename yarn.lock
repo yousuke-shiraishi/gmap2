@@ -9,3 +9,7 @@ bootstrap@^3.3.7:
 jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+
+lightbox2@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/lightbox2/-/lightbox2-2.10.0.tgz#06b3f7b7bd7c1332c20d037602d9657542fd7de4"
