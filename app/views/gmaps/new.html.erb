@@ -1,8 +1,5 @@
 <h1 class="text-center">New Gmap</h1>
-<!-- <script src = giomap.js ></script> -->
-
 <script>
-  // Geolocation APIに対応している
   if (navigator.geolocation) {
     alert("この端末では位置情報が取得できます");
     navigator.geolocation.getCurrentPosition((position) => {
@@ -11,13 +8,13 @@
     }),
     function (error) {
       switch (error.code) {
-        case 1: //PERMISSION_DENIED
+        case 1:
           alert("位置情報の利用が許可されていません");
           break;
-        case 2: //POSITION_UNAVAILABLE
+        case 2:
           alert("現在位置が取得できませんでした");
           break;
-        case 3: //TIMEOUT
+        case 3:
           alert("タイムアウトになりました");
           break;
         default:
@@ -31,14 +28,14 @@
 </script>
 
 <% if @gmap.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@gmap.errors.count, "error") %>
-    Gmapsは保存されていません:</h2>
-  <ul>
-    <% @gmap.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
+  <div id="error_explanation">
+    <h2><%= pluralize(@gmap.errors.count, "error") %>
+      Gmapsは保存されていません:</h2>
+    <ul>
+      <% @gmap.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
   <%= form_with(model: @gmap=Gmap.new, local: true, html: {multipart: true}) do |form| %>
   <div class="field">
@@ -52,25 +49,25 @@
     <%= form.text_field :title,id: :gmap_title ,class: "form-control"%>
   </div>
   <div class="field form-group">
-    <%= form.label :"コメント"  ,class: "center-block"%><br>
+    <%= form.label :"コメント" ,class: "center-block"%><br>
     <%= form.text_area :coment, id: :gmap_coment ,size: "40x4",class: "form-control"%>
   </div>
   <div id="magic_w" class="field form-group">
-    <%= form.label :"合言葉"  ,class: "center-block"%>
+    <%= form.label :"合言葉" ,class: "center-block"%>
     <%= form.text_field :magic_word,id: :magic_word ,class: "form-control"%>
   </div>
   <div class="field form-group">
-    <%= form.label :"マーカーに載せる画像"  ,class: "center-block"%>
+    <%= form.label :"マーカーに載せる画像" ,class: "center-block"%>
     <%= form.file_field :image,id: :image ,class: "form-control"%>
   </div>
   <div class="actions">
     <%= form.submit class: "center-block"%>
   </div>
-  <% end %>
-  <br>
-  <div class="form-group text-center">
-    <input type="checkbox" class="magic_c" name="magic_word_set" onclick="toggle('#magic_w', this)">全体に公開する
-  </div>
-  <div class="text-center">
-    <%= link_to 'Back', root_path %>
-  </div>
+<% end %>
+<br>
+<div class="form-group text-center">
+  <input type="checkbox" class="magic_c" name="magic_word_set" onclick="toggle('#magic_w', this)">全体に公開する
+</div>
+<div class="text-center">
+  <%= link_to 'Back', root_path %>
+</div>

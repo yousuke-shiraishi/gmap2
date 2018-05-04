@@ -9,10 +9,7 @@ require 'date'
       @gmaps = @member.joins(:gmaps).where('magic_word = ?',"").map {|member| member.gmaps}.flatten.uniq
       render template: 'gmaps/index'
     else
-
-      #@member=Member.where('email = ?',params[:email])
-       #binding.pry
-      @gmaps=Gmap.joins(:member).where('magic_word = ? AND magic_word != ? AND email = ?' ,params[:magic_word] ,"",params[:email])#.map {|member| member.gmaps}.flatten.uniq
+      @gmaps=Gmap.joins(:member).where('magic_word = ? AND magic_word != ? AND email = ?' ,params[:magic_word] ,"",params[:email])
       render template: 'gmaps/index'
     end
   end
@@ -21,7 +18,7 @@ require 'date'
     file_name="gmapsの理念.pdf"
     filepath = Rails.root.join('public',file_name)
     stat = File::stat(filepath)
-    send_file(filepath, :filename => file_name, :length => stat.size)
+    send_file(filepath, filename: :file_name, length: :stat.size)
   end
 
 

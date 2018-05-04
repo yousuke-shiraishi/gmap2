@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get :touroku
     end
   end
-  resources :gmaps, only: %i[index new show create edit update destroy] do
+  resources :gmaps do
     collection do
       get :confirm
       post :check

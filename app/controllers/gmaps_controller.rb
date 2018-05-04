@@ -13,7 +13,7 @@ class GmapsController < ApplicationController
 
   def new
      if params[:back]
-       @gmap = Gmap.new(gmap_params)
+       @gmap = current_member.gmaps.build(gmap_params)
      else
        @gmap = Gmap.new
      end
@@ -28,8 +28,7 @@ class GmapsController < ApplicationController
   end
 
   def create
-    @gmap = Gmap.new(gmap_params)
-    @gmap.member_id = current_member.id
+    @gmap = current_member.gmaps.build(gmap_params)
     respond_to do |format|
       if @gmap.save
         flash[:success] = "マーカーを作るのに成功しました"
@@ -40,12 +39,6 @@ class GmapsController < ApplicationController
       end
     end
   end
-
-  #  def destroy_images
-  #    @gmap = Gmap.find(params[:q])
-  #    @gmap.destroy if (@gmap.member_id == current_member.id)
-  #    render json: {gmap:  @gmap} if @gmap.destroyed?
-  #  end
 
   def update
     respond_to do |format|
@@ -58,8 +51,7 @@ class GmapsController < ApplicationController
   end
 
   def destroy
-    @gmap = Gmap.find(params[:q])
-    if @gmap.member_id == current_member.id
+    if @gmap = current_member.gmaps.find(params[:q])
       @gmap.destroy
       @status = 200
     else
@@ -70,7 +62,7 @@ class GmapsController < ApplicationController
 
   private
     def set_gmap
-      @gmap = Gmap.find(params[:id])
+      @gmap = current_member.gmaps.find(params[:id])
     end
 
     def gmap_params

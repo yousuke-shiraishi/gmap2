@@ -1,84 +1,86 @@
 <aside>
-  <article class="">
+  <article>
     <% if member_signed_in? %>
-    <h1 class="text-center">あなたの画像</h1>
-    <br>
-    <div class="text-center"><%= image_tag current_member.image ,class: :"img-rounded" %></div>
-    <br>
-    <div class="text-center"><%= current_member.name %></div>
-    <br>
-    <h1 class="text-center">絞り込み検索</h1>
-    <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id: "form1"}) do %>
-    <div>
-      <p>
-        <label class="center-block">名前</label>
-      </p>
-    </div>
-    <p>
-      <input class="center-block" type="text" name="name" required><br>
-    </p>
-    <div>
-      <p>
-        <label class="center-block">生年月日</label>
-      </p>
-    </div>
-    <div>
-      <p>
-        <input class="center-block" type="date" name="birth" required><br>
-      </p>
-    </div>
-    <div>
-      <p>
-        <%= submit_tag '検索する',name: 'public' , class:"center-block"%>
-      </p>
-    </div>
-    <% end %>
+      <h1 class="text-center">あなたの画像</h1>
+      <br>
+      <div class="text-center"><%= image_tag current_member.image ,class: :"img-rounded" %></div>
+      <br>
+      <div class="text-center"><%= current_member.name %></div>
+      <br>
+      <h1 class="text-center">絞り込み検索</h1>
+      <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id: "form1"}) do %>
+        <div>
+          <p>
+            <label class="center-block">名前</label>
+          </p>
+        </div>
+        <p>
+          <input class="center-block" type="text" name="name" required="required"><br>
+        </p>
+        <div>
+          <p>
+            <label class="center-block">生年月日</label>
+          </p>
+        </div>
+        <div>
+          <p>
+            <input class="center-block" type="date" name="birth" required="required"><br>
+          </p>
+        </div>
+        <div>
+          <p>
+            <%= submit_tag '検索する',name: 'public' , class: "center-block"%>
+          </p>
+        </div>
+      <% end %>
 
-    <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id: "form2"}) do %>
-    <div>
-      <p>
-        <label class="center-block">メールアドレス</label>
-      </p>
-    </div>
-    <div>
-      <p>
-        <input class="center-block" type="email" name="email" required><br>
-      </p>
-    </div>
-    <div class="center-block">
-      <p>
-        <label class="center-block">合言葉</label>
-      </p>
-    </div>
-    <div>
-      <p>
-        <input class="center-block" type="text" name="magic_word" required>
-      </p>
-    </div>
-    <div>
-      <p><%= submit_tag '検索する',name: 'private' ,class: "center-block"%></p>
-    </div>
-    <% end %>
+      <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id: "form2"}) do %>
+        <div>
+          <p>
+            <label class="center-block">メールアドレス</label>
+          </p>
+        </div>
+        <div>
+          <p>
+            <input class="center-block" type="email" name="email" required="required"><br>
+          </p>
+        </div>
+        <div class="center-block">
+          <p>
+            <label class="center-block">合言葉</label>
+          </p>
+        </div>
+        <div>
+          <p>
+            <input class="center-block" type="text" name="magic_word" required="required">
+          </p>
+        </div>
+        <div>
+          <p><%= submit_tag '検索する',name: 'private' ,class: "center-block"%></p>
+        </div>
+     <% end %>
     <div class="form-group text-center">
       <div class="radio">
-        <input type="radio" id="radio1" name="radio_serach" value="public" checked><strong>全体に公開されているものを検索</strong>
+        <input type="radio" id="radio1" name="radio_serach" value="public" checked="checked">
+        <strong>全体に公開されているものを検索</strong>
       </div>
       <div class="radio">
-        <input type="radio" id="radio2" name="radio_serach" value="private"><strong>プライベートのものを検索</strong>
+        <input type="radio" id="radio2" name="radio_serach" value="private">
+        <strong>プライベートのものを検索</strong>
       </div>
     </div>
   <% else %>
-  <div><strong><%= link_to "最初にお読みください",{:controller => "/members",:action=>"downloadpdf"} %></strong></div>
-  <div class="box22">
+    <div>
+      <strong><%= link_to "最初にお読みください",{controller: "/members",action: "downloadpdf"} %></strong>
+    </div>
+    <div class="box22">
       <i class="fa fa-heart faa-pulse animated fa-example">
         <p>
           このサイトはGoogleMapを使って現在地にマーカーを立てられます。マーカーには写真とタイトルとコメントが載せられるよ<br>
           楽しんでいってね！
         </p>
       </i>
-  </div>
-  
-
-    <% end %>
-  </article>
+    </div>
+  <% end %>
+</article>
 </aside>
