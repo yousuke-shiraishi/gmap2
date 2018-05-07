@@ -27,6 +27,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'bullet'
 end
 
 group :development do
@@ -41,7 +42,6 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bullet'
 gem 'devise'
 gem 'omniauth'
 gem 'geocoder'
