@@ -11,13 +11,13 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render 'layouts/header'%>
+    <%= render 'layouts/header' %>
     <div class="row">
       <div class="box col-xs-12 col-md-8">
         <%= yield %>
       </div>
       <div class="box col-xs-12 col-md-4">
-        <%= render 'layouts/aside'%>
+        <%= render 'layouts/aside' %>
       </div>
         <footer class="footer">
           <div class="container">
@@ -26,7 +26,6 @@
         </footer>
     </div>
   </div>
-  <!-- flashにメッセージがある時 -->
   <% unless flash.empty? %>
     	<script type="text/javascript">
       <% flash.each do |f| %>
@@ -35,6 +34,5 @@
       <% end %>
      </script>
 <% end %>
-<!--  -->
 </body>
 </html>

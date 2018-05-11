@@ -1,9 +1,9 @@
 
-$(document).on('turbolinks:load', function() { flag=true;
-  $(".radio  input[type=radio]").change(function() {
+$(document).on('turbolinks:load', function() { flag = true;
+  $(".radio  input[type = radio]").change(function() {
     // //値が変更されたとき
-     flag=!flag;
-    if (flag===true){
+     flag =! flag;
+    if (flag === true){
       $("#form1").show();
       $("#form2").hide();
 

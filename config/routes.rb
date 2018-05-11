@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'gmaps#index'
   devise_for :members
-  get 'members/downloadpdf/download'=> 'members#downloadpdf'
+  get 'members/downloadpdf/download', to:'members#downloadpdf'
 
   resources :members, only: [:show] do
     collection do

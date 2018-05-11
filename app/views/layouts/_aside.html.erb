@@ -29,12 +29,12 @@
         </div>
         <div>
           <p>
-            <%= submit_tag '検索する',name: 'public' , class: "center-block"%>
+            <%= submit_tag '検索する', name: 'public' , class: "center-block" %>
           </p>
         </div>
       <% end %>
 
-      <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id: "form2"}) do %>
+      <%= form_tag({ controller: "/members", action: "search", remote: true } ,{ method: "get", id: "form2" }) do %>
         <div>
           <p>
             <label class="center-block">メールアドレス</label>
@@ -56,7 +56,7 @@
           </p>
         </div>
         <div>
-          <p><%= submit_tag '検索する',name: 'private' ,class: "center-block"%></p>
+          <p><%= submit_tag '検索する', name: 'private', class: "center-block" %></p>
         </div>
      <% end %>
     <div class="form-group text-center">
@@ -71,7 +71,7 @@
     </div>
   <% else %>
     <div>
-      <strong><%= link_to "最初にお読みください",{controller: "/members",action: "downloadpdf"} %></strong>
+      <strong><%= link_to "最初にお読みください",{ controller: "/members", action: "downloadpdf" } %></strong>
     </div>
     <div class="box22">
       <i class="fa fa-heart faa-pulse animated fa-example">

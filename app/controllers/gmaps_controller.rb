@@ -2,8 +2,6 @@ class GmapsController < ApplicationController
   before_action :set_gmap, only: %i[edit show update]
   before_action :authenticate_member!, only: %i[new edit update destroy]
 
-  require 'date'
-
   def index
     @gmaps = Gmap.where(magic_word: "")
   end
