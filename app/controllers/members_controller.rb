@@ -3,8 +3,8 @@ class MembersController < ApplicationController
 
   def search
     if params[:public]
-      @member = Member.where('name = ? AND birth = ?',params[:name],params[:birth])
-      @gmaps = @member.joins(:gmaps).where('magic_word = ?',"").map {|member| member.gmaps}.flatten.uniq
+      @member = Member.where('name = ? AND birth = ?', params[:name], params[:birth])
+      @gmaps = @member.joins(:gmaps).where('magic_word = ?', '').map { |member| member.gmaps }.flatten.uniq
       render template: 'gmaps/index'
     else
       @gmaps = Gmap.joins(:member).where('magic_word = ? AND magic_word != ? AND email = ?' ,params[:magic_word] ,"",params[:email])
@@ -13,10 +13,10 @@ class MembersController < ApplicationController
   end
 
   def downloadpdf
-    file_name = "gmapsの理念.pdf"
-    filepath = Rails.root.join('public',file_name)
-    stat = File::stat(filepath)
-    send_file(filepath, filename: :file_name, length: :stat.size)
+    file_name = 'gmapsの理念.pdf'
+    filepath = Rails.root.join('public', file_name)
+    stat = File.stat(filepath)
+    send_file(filepath, filename: file_name, length: stat.size)
   end
 
   def touroku
@@ -29,8 +29,7 @@ class MembersController < ApplicationController
 
   private
 
-    def set_member
-      @member = Member.find(params[:id])
-    end
-
+  def set_member
+    @member = Member.find(params[:id])
+  end
 end
