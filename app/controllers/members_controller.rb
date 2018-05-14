@@ -1,5 +1,4 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: %i[edit show update]
 
   def search
     if params[:public]
@@ -19,7 +18,7 @@ class MembersController < ApplicationController
     send_file(filepath, filename: file_name, length: stat.size)
   end
 
-  def touroku
+  def dispatching
     if member_signed_in?
       redirect_to new_gmap_path
     else
@@ -27,9 +26,4 @@ class MembersController < ApplicationController
     end
   end
 
-  private
-
-  def set_member
-    @member = Member.find(params[:id])
-  end
 end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :members, only: [:show] do
     collection do
       get :search
-      get :touroku
+      get :dispatching
     end
   end
   resources :gmaps do

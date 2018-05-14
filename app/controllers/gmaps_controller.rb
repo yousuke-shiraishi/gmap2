@@ -25,24 +25,20 @@ class GmapsController < ApplicationController
 
   def create
     @gmap = current_member.gmaps.build(gmap_params)
-    respond_to do |format|
       if @gmap.save
         flash[:success] = 'マーカーを作るのに成功しました'
-        format.html { redirect_to root_path }
+        redirect_to root_path
       else
         flash[:danger] = 'マーカーを作るのに失敗しました'
-        format.html { render :new }
+        render :new
       end
-    end
   end
 
   def update
-    respond_to do |format|
-      if @gmap.update(gmap_params)
-        format.html { redirect_to @gmap, flash[:success] = 'Gmapデータがアップデートされました' }
-      else
-        format.html { render :edit }
-      end
+    if @gmap.update(gmap_params)
+      redirect_to @gmap, flash[:success] = 'Gmapデータがアップデートされました'
+    else
+      render :edit
     end
   end
 
