@@ -6,7 +6,7 @@ class MembersController < ApplicationController
       @member = Member.where('name = ? AND birth = ?', params[:name], params[:birth])
       @gmaps = @member.joins(:gmaps).where('magic_word = ?', '').map(&:gmaps).flatten.uniq
     else
-      @gmaps = Gmap.joins(:member).where('magic_word = ? AND magic_word != ? AND email = ?' ,params[:magic_word] ,"",params[:email])
+      @gmaps = Gmap.joins(:member).where('magic_word = ? AND magic_word != ? AND email = ?', params[:magic_word], '', params[:email])
     end
     render 'gmaps/index'
   end
