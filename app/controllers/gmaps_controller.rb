@@ -6,7 +6,8 @@ class GmapsController < ApplicationController
     @gmaps = Gmap.where(magic_word: '')
   end
 
-  def show; end
+  def show
+  end
 
   def new
     if params[:back]
@@ -16,7 +17,8 @@ class GmapsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def check
     @gmap = current_member.gmaps.build(gmap_params)

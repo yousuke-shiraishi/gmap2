@@ -18,7 +18,8 @@ class MembersController < ApplicationController
     send_file(filepath, filename: file_name, length: stat.size)
   end
 
-  def show; end
+  def show
+  end
 
   def dispatching
     if member_signed_in?
