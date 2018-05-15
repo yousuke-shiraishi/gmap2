@@ -43,7 +43,8 @@ class GmapsController < ApplicationController
   end
 
   def destroy
-    if @gmap = current_member.gmaps.find(params[:q])
+    @gmap = current_member.gmaps.find(params[:q])
+    if @gmap.member_id == current_member.id
       @gmap.destroy
       @status = 200
     else
