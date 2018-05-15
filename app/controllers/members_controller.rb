@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  before_action :set_member, only: :show
 
   def search
     if params[:public]
@@ -17,11 +18,19 @@ class MembersController < ApplicationController
     send_file(filepath, filename: file_name, length: stat.size)
   end
 
+  def show; end
+
   def dispatching
     if member_signed_in?
       redirect_to new_gmap_path
     else
       redirect_to new_member_session_path
     end
+  end
+
+  private
+
+  def set_member
+    @member = current_member
   end
 end
