@@ -36,12 +36,29 @@ function initMap() {
   map.fitBounds(bounds);
   markers;
 }
-
+function rebuildcomment(str, length) {
+    var resultArr = [];
+    if (!str || !length || length < 1) {
+        return resultArr;
+    }
+    var index = 0;
+    var start = index;
+    var end = start + length;
+    while (start < str.length) {
+        resultArr[index] = str.substring(start, end);
+        index++;
+        start = end;
+        end = start + length;
+    }
+    resultArr = resultArr.join('<br>');
+    return resultArr;
+}
 
 function markerEvent(i, largeInfowindow, marker, address,map) {
   marker.addListener('click', function() { // マーカーをクリックしたと
     if (largeInfowindow[i].marker != marker) {
       largeInfowindow[i].marker = marker;
+      largeInfowindow[i].content = rebuildcomment(largeInfowindow[i].content,30);
       largeInfowindow[i].setContent('<a href="'+address.image["url"]+'"target = "_blank" data-lightbox = "image-' + largeInfowindow[i].marker.id + '"> <img class = "picture" src =' + address.image["url"] + ' alt = "" width = "150px" height = "auto"/></a>' + '<div><p>' + largeInfowindow[i].marker.title + '</p></div>' +
       '<div><p>' + largeInfowindow[i].content + '</p></div>' + '<div><input type = "button" value = "マーカーを削除する" id = "btn'+ largeInfowindow[i].marker.id +'"/></div>');
       largeInfowindow[i].open(map, marker); // 吹き出しの表示
