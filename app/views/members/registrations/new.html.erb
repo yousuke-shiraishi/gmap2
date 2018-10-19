@@ -12,6 +12,7 @@
     <%= f.label :"名前" ,class: "center-block" %>
     <%= f.text_field :name , autofocus: true,class: "form-control" %>
   </div>
+
   <div class="field form-group">
       <%= f.label :"誕生日" %>
       <%= f.date_select(
@@ -20,6 +21,7 @@
               end_year:   (Time.now.year),
               default:    Date.new(1980, 1, 1)) %>
   </div>
+  
   <div class="center-block">
     <%= f.label :"画像"  ,class: "center-block"%>
   </div>
