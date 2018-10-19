@@ -6,4 +6,5 @@ class Member < ApplicationRecord
   validates :birth, presence: true
   has_many :gmaps
   mount_uploader :image, ImageUploader
+  accepts_nested_attributes_for :gmaps
 end

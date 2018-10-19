@@ -3,11 +3,11 @@ class MembersController < ApplicationController
   before_action :set_member, only: :show
 
   def search
-    if params[:public]
-      @member = Member.where('name = ? AND birth = ?', params[:name], params[:birth])
+    if params[:member][:public]
+      @member = Member.where('name = ? AND birth = ?', params[:member][:name], params[:member][:birth])
       @gmaps = @member.joins(:gmaps).where('magic_word = ?', '').map(&:gmaps).flatten.uniq
     else
-      @gmaps = Gmap.joins(:member).where('magic_word = ? AND magic_word != ? AND email = ?', Digest::MD5.hexdigest(params[:magic_word]), '', params[:email])
+      @gmaps = Gmap.joins(:member).where('magic_word = ? AND magic_word != ? AND email = ?', Digest::MD5.hexdigest(params[:member][:magic_word]), '', params[:member][:email])
     end
     render 'gmaps/index'
   end
@@ -35,4 +35,8 @@ class MembersController < ApplicationController
   def set_member
     @member = current_member
   end
+
+  # def member_params
+  #     params.require(:member).permit(:gmap_attributes: [:id, :magic_word])
+  # end
 end

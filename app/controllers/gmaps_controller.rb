@@ -65,4 +65,5 @@ class GmapsController < ApplicationController
     params.require(:gmap).permit(:title, :coment,
                                  :magic_word, :latitude, :longitude, :image)
   end
+
 end
