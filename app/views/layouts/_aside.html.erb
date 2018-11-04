@@ -8,63 +8,32 @@
       <div class="text-center"><%= current_member.name %></div>
       <br>
       <h1 class="text-center">絞り込み検索</h1>
-
-      <%= form_for(@member = Member.new, url: search_members_path,html: {method: 'GET',id: 'form1'}) do |f| %>
-        <!-- <div>
+      <%= form_tag({controller: "/members", action: "search",remote:true} ,{method: "get",id: "form1"}) do %>
+        <div>
           <p>
             <label class="center-block">名前</label>
           </p>
-        </div> -->
-        <!-- <p>
-          <input class="center-block" type="text" name="name" required="required"><br>
-        </p> -->
-        <div>
-          <%= f.label :"名前" ,class: "center-block" %>
-          <%= f.text_field :name , autofocus: true,class: "form-control" %>
         </div>
-        <!-- <div>
+        <p>
+          <input class="center-block" type="text" name="name" required="required"><br>
+        </p>
+        <div>
           <p>
             <label class="center-block">生年月日</label>
           </p>
-        </div> -->
-        <%= f.hidden_field :public , :value => "public" %>
-        <div class="text-center">
-            <%= f.label :"誕生日" %>
-            <%= f.date_select(
-                    :birth,
-                    start_year: 1900,
-                    end_year:   (Time.now.year),
-                    default:    Date.new(1980, 1, 1)) %>
         </div>
-        <div >
+        <div class="center-block text-center">
+            <%= select_date(Date.today,:start_year=> 1970,name: 'birth')  %>
+        </div>
+        <div>
           <p>
-            <%= f.submit '検索する', class: "center-block" %>
+            <%= submit_tag '検索する', name: 'public' , class: "center-block" %>
           </p>
         </div>
       <% end %>
 
-
-
-    <%= form_for(@member = Member.new, url: search_members_path,html: {method: 'GET',id: 'form2'}) do |f| %>
-    <div>
-      <%= f.label :"メールアドレス" ,class: "center-block" %>
-      <%= f.email_field :email, class: "form-control" %>
-    </div>
-      <%= f.hidden_field :private , :value => "private" %>
-    <div>
-      <%= fields_for @member.gmaps do |fg| %>
-      <%= fg.label :"合言葉" ,class: "center-block" %>
-      <%= fg.text_field :magic_word, class: "form-control" %>
-      <% end %>
-    </div>
-    <div>
-      <p><%= f.submit '検索する', class: "center-block" %></p>
-    </div>
-   <% end %>
-
-
-      <%#= form_tag({controller: "/members", action: "search", remote: true} ,{method: "get", id: "form2"}) do %>
-        <!-- <div>
+      <%= form_tag({controller: "/members", action: "search", remote: true} ,{method: "get", id: "form2"}) do %>
+        <div>
           <p>
             <label class="center-block">メールアドレス</label>
           </p>
@@ -85,9 +54,9 @@
           </p>
         </div>
         <div>
-          <p><%#= submit_tag '検索する', name: 'private', class: "center" %></p>
-        </div> -->
-     <%# end %>
+          <p><%= submit_tag '検索する', name: 'private', class: "center-block" %></p>
+        </div>
+     <% end %>
     <div class="form-group text-center">
       <div class="radio">
         <input type="radio" id="radio1" name="radio_serach" value="public" checked="checked">

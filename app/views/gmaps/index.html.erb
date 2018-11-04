@@ -2,11 +2,12 @@
 <div id="gmaps"></div>
 <br>
 <%= javascript_tag do %>
-  var addresses = <%= raw @gmaps.to_json %>;
+  window.addresses = <%= raw @gmaps.to_json %>;
 <% end %>
 <div class="text-center"><strong><%= link_to 'マーカー情報を登録する',dispatching_members_path ,class: "marker_description btn btn-primary"%></strong></div>
 <p>
   <script type="text/javascript">
     initMap();
   </script>
+  <%#= javascript_include_tag 'markers.js', 'data-turbolinks-track' => true %>
 </p>

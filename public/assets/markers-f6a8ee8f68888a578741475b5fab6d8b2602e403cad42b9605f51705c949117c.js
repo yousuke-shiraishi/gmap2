@@ -68,10 +68,12 @@ function markerEvent(i, largeInfowindow, marker, address, map) {
       '</p></div>' + '<div><input type = "button" value = "マーカーを削除する" id = "btn' + largeInfowindow[i].marker.id + '"/></div>');
       largeInfowindow[i].open(map, marker); // 吹き出しの表示
 
-      // var target = document.getElementById('btn' + largeInfowindow[i].marker.id + '');
-      target = `#btn${largeInfowindow[i].marker.id}`;
-      $(document).on("click", target, function (){
-      // target.addEventListener('click', function (e) {
+      var target = document.getElementById('btn' + largeInfowindow[i].marker.id + '');
+
+      console.log("aaaaa" + largeInfowindow[i].marker.id);
+      console.log("qqqqq" + target);
+
+      target.addEventListener('click', function (e) {
         if (!!confirm('本当に削除しますか?削除すると戻せません。')) {
           var CSRF_TOKEN = $('meta[name = "csrf-token"]').attr('content');
           $.ajax({
@@ -95,3 +97,4 @@ function markerEvent(i, largeInfowindow, marker, address, map) {
     }
   });
   }
+;
