@@ -2,7 +2,7 @@
   "name": "easymap",
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "jquery": "^3.2.1",
     "lightbox2": "^2.10.0"
   },
